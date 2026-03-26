@@ -2,6 +2,7 @@ console.log("Script started");
 //Variable to track guesses.
 let guesses = 0;
 
+
 //Bar to track first card pick. (Empty to start)
 let firstCardId = "";
 let secondCardId = "";
@@ -27,6 +28,9 @@ function flipCard(cardId) {
         //checkForMatch();
         setTimeout(checkForMatch, 1000);
         console.log("second = " + secondCardId);
+        guesses = guesses + 1;
+        let guessDisplay = document.getElementById("guessDisplay");
+        guessDisplay.innerText = guesses + " guesses";
     }
 
 }
@@ -35,6 +39,7 @@ function checkForMatch() {
     //Get card elements.
     let firstCard = document.getElementById(firstCardId);
     let secondCard = document.getElementById(secondCardId);
+
 
     //Check if the text matches.
     if (firstCard.innerText == secondCard.innerText) {
@@ -53,4 +58,5 @@ function checkForMatch() {
     //Reset for next pick.
     firstCardId = "";
     secondCardId = "";
+   
 }
